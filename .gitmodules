@@ -1,3 +1,3 @@
 [submodule "nvim"]
 	path = nvim
-	url = https://github.com/gjcliff/.dotfiles.git
+	url = https://github.com/gjcliff/nvim.git

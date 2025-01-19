@@ -1,0 +1,9 @@
+[user]
+	name = Graham Clifford
+	email = gjcliff@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+[pull]
+	ff = only

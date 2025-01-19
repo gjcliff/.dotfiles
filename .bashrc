@@ -151,12 +151,17 @@ export EDITOR=nvim
 # alias ssh="kitty +kitten ssh "
 alias oo="cd ~/Documents/obsidian/nvim_vault"
 
-source /home/graham/Documents/personal/orca_dependencies/ardupilot/Tools/completion/completion.bash
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 
 alias qflipper="sudo ~/.appimages/qFlipper-x86_64-1.3.3.AppImage"
 alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"
-alias neofetch="neofetch --source ~/.config/neofetch/pngs/sad_pepe.png"
+alias Telegram="~/Telegram/Telegram"
+# alias neofetch="neofetch --source ~/.config/neofetch/pngs/sad_pepe.png"
+xhost +local:docker
+clear
 neofetch
+export PICO_SDK_PATH=/home/graham/Documents/personal/pico/pico/pico-sdk
+export PICO_EXAMPLES_PATH=/home/graham/Documents/personal/pico/pico/pico-examples
+export PICO_EXTRAS_PATH=/home/graham/Documents/personal/pico/pico/pico-extras
+export PICO_PLAYGROUND_PATH=/home/graham/Documents/personal/pico/pico/pico-playground

@@ -148,9 +148,6 @@ fi
 
 export EDITOR=nvim
 
-# alias ssh="kitty +kitten ssh "
-alias oo="cd ~/Documents/obsidian/nvim_vault"
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 . "$HOME/.cargo/env"
 
@@ -161,7 +158,3 @@ alias Telegram="~/Telegram/Telegram"
 xhost +local:docker
 clear
 neofetch
-export PICO_SDK_PATH=/home/graham/Documents/personal/pico/pico/pico-sdk
-export PICO_EXAMPLES_PATH=/home/graham/Documents/personal/pico/pico/pico-examples
-export PICO_EXTRAS_PATH=/home/graham/Documents/personal/pico/pico/pico-extras
-export PICO_PLAYGROUND_PATH=/home/graham/Documents/personal/pico/pico/pico-playground

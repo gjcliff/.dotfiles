@@ -158,3 +158,4 @@ alias Telegram="~/Telegram/Telegram"
 xhost +local:docker
 clear
 neofetch
+source /home/graham/Documents/personal/alacritty/alacritty/extra/completions/alacritty.bash

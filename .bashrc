@@ -117,13 +117,10 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=$PATH:~/.local/bin
-export ROS_DOMAIN_ID=2
 # source /opt/ros/iron/setup.bash
 # source ~/ws/interbotix/install/setup.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
 # Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
 # export XDG_SESSION_TYPE=xcb
 export XDG_SESSION_TYPE=x11
 
@@ -153,9 +150,27 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 alias qflipper="sudo ~/.appimages/qFlipper-x86_64-1.3.3.AppImage"
 alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"
-alias Telegram="~/Telegram/Telegram"
 # alias neofetch="neofetch --source ~/.config/neofetch/pngs/sad_pepe.png"
 xhost +local:docker
 clear
 neofetch
 source /home/graham/Documents/personal/alacritty/alacritty/extra/completions/alacritty.bash
+
+# work
+source /opt/ros/humble/setup.bash
+export NEXUS_DIR=~/work/nexus
+export NEXUS_ROS_DISTRO=/opt/ros/humble
+export NEXUS_OUTPUT=$NEXUS_DIR/output
+export PX4_DIR=~/work/PX4-Autopilot
+export MICRO_DDS_BRIDGE_DIR=~/work/Micro-XRCE-DDS-Agent
+export MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoibWFnaS0yIiwiYSI6ImNtNmxhaXhyMjA3NHkyaW9xbHN5bzY5bjIifQ.FEk3P3eh75NARHBTr2mI0g
+export RERUN_MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN
+export ARK_JETSON_KERNEL_DIR=/home/graham/work/tmp/ark_jetson_kernel
+export ROS_DOMAIN_ID=3
+export ROS_LOCALHOST_ONLY=0
+
+export WP_BOX=$HOME/.fusion360/wineprefixes/default
+
+export GZ_SIM_RESOURCE_PATH=$PX4_DIR/Tools/simulation/gz:$HOME/work/PX4-Autopilot/Tools/simulation/gz/models:$HOME/.gz/fuel/fuel.gazebosim.org/models:$GZ_SIM_RESOURCE_PATH
+
+export STM32_PRG_PATH=/home/graham/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin

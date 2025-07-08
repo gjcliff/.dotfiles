@@ -39,6 +39,3 @@ fi
 
 echo "done. you can switch to zsh with: zsh"
 echo "or set it as your default shell with: chsh -s $(which zsh)"
-
-# rm ~/.zshrc
-# mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc

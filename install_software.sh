@@ -11,7 +11,10 @@ sudo apt install -y \
     cmake \
     zsh \
     neofetch \
-    fzf
+    fzf \
+    tmux \
+    direnv \
+    python3-argcomplete
 
 # install rust (rustup and cargo)
 if ! command -v cargo &>/dev/null; then
@@ -37,5 +40,5 @@ fi
 echo "done. you can switch to zsh with: zsh"
 echo "or set it as your default shell with: chsh -s $(which zsh)"
 
-rm ~/.zshrc
-mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+# rm ~/.zshrc
+# mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc

@@ -16,9 +16,14 @@ xhost +local:docker > /dev/null
 eval "$(zoxide init --cmd cd zsh)"
 
 # ros
-source /opt/ros/humble/setup.zsh
-eval "$(register-python-argcomplete3 ros2)"
-eval "$(register-python-argcomplete3 colcon)"
+if [ -f /opt/ros/humble/setup.zsh ]; then
+  source /opt/ros/humble/setup.zsh
+
+  if command -v register-python-argcomplete3 >/dev/null 2>&1; then
+    eval "$(register-python-argcomplete3 ros2)"
+    eval "$(register-python-argcomplete3 colcon)"
+  fi
+fi
 
 # env variables
 export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14

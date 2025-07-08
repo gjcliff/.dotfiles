@@ -1,6 +1,7 @@
 # from bashrc
 export EDITOR=nvim
 alias vim='nvim'
+alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"
 
 unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY  # Don't write each command immediately to the history file

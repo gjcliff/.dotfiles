@@ -9,7 +9,6 @@ FILES=(
   ".gitignore"
   ".tmux.conf"
   ".zshrc"
-  "config.conf"
 )
 
 echo "Creating symlinks from $DOTFILES_DIR to home directory..."

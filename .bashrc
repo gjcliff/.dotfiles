@@ -116,7 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=$PATH:~/.local/bin
+# export PATH=$PATH:~/.local/bin
 # source /opt/ros/iron/setup.bash
 # source ~/ws/interbotix/install/setup.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash

@@ -9,6 +9,7 @@ FILES=(
   ".gitignore"
   ".tmux.conf"
   ".zshrc"
+  ".config/neofetch/config.conf"
 )
 
 echo "Creating symlinks from $DOTFILES_DIR to home directory..."

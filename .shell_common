@@ -1,5 +1,4 @@
 #!/bin/sh
-# ~/.shell_env
 # Common environment variables and aliases for both bash and zsh
 
 export EDITOR=nvim
@@ -23,8 +22,10 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# # Homebrew
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" 2>/dev/null
+# Homebrew
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # Library path
 if [[ ":$LD_LIBRARY_PATH:" != *":/usr/local/lib:"* ]]; then

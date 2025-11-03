@@ -6,7 +6,7 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="crunch"
+ZSH_THEME="dst"
 CASE_SENSITIVE="true"
 DISABLE_AUTO_TITLE="true"
 HIST_STAMPS="yyyy-mm-dd"

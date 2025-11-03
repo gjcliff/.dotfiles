@@ -11,6 +11,10 @@ CASE_SENSITIVE="true"
 DISABLE_AUTO_TITLE="true"
 HIST_STAMPS="yyyy-mm-dd"
 
+if [ -f /.dockerenv ] || grep -q docker /proc/1/cgroup 2>/dev/null; then
+    export IN_DOCKER="docker"
+fi
+
 zstyle ':omz:update' mode reminder
 zstyle ':omz:update' frequency 30
 
@@ -38,6 +42,10 @@ fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
+
+if [ -n "$IN_DOCKER" ]; then
+    PROMPT="%{$fg[cyan]%}$IN_DOCKER%{$reset_color%} $PROMPT"
+fi
 
 . "$HOME/.cargo/env"
 
@@ -69,6 +77,10 @@ use-protobuf-local() {
 }
 neofetch
 
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 [ -f ~/.shell_common ] && source ~/.shell_common
 [ -f ~/.env ] && source ~/.env
+
 use-protobuf-system

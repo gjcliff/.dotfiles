@@ -5,6 +5,9 @@ unsetopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 
+DISABLE_AUTO_TITLE="true"
+export PROMPT_IGNORE_EXIT_CODE=true
+
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="dst"
 CASE_SENSITIVE="true"

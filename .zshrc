@@ -43,13 +43,9 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(zoxide init --cmd cd zsh)"
 
-if [ -f /opt/ros/humble/setup.zsh ]; then
-  source /opt/ros/humble/setup.zsh
-
-  if command -v register-python-argcomplete3 >/dev/null 2>&1; then
+if command -v register-python-argcomplete3 >/dev/null 2>&1; then
     eval "$(register-python-argcomplete3 ros2)"
     eval "$(register-python-argcomplete3 colcon)"
-  fi
 fi
 
 if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
@@ -57,29 +53,22 @@ if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
 fi
 
 use-protobuf-system() {
-    export PATH="${PATH//:\/home\/graham\/.local\/bin/}"
-    export PATH="${PATH//\/home\/graham\/.local\/bin:/}"
-    export PATH="$PATH:/home/graham/.local/bin"
-    export CMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH//:\/home\/graham\/.local/}"
-    export CMAKE_PREFIX_PATH="${CMAKE_PREFIX_PATH//\/home\/graham\/.local:/}"
-    export PKG_CONFIG_PATH="${PKG_CONFIG_PATH//:\/home\/graham\/.local\/lib\/pkgconfig/}"
-    export LD_LIBRARY_PATH="${LD_LIBRARY_PATH//:\/home\/graham\/.local\/lib/}"
+    export CMAKE_PREFIX_PATH=$(echo "$CMAKE_PREFIX_PATH" | tr ':' '\n' | grep -v "$HOME/.local" | tr '\n' ':' | sed 's/:$//')
+    export CMAKE_IGNORE_PATH="$HOME/.local"
+    export PATH="/usr/bin:$PATH"
     echo "Using system protobuf: $(protoc --version)"
 }
 
 use-protobuf-local() {
-    export PATH="${PATH//:\/home\/graham\/.local\/bin/}"
-    export PATH="${PATH//\/home\/graham\/.local\/bin:/}"
-    export PATH="/home/graham/.local/bin:$PATH"
-    export CMAKE_PREFIX_PATH="/home/graham/.local:$CMAKE_PREFIX_PATH"
-    export PKG_CONFIG_PATH="/home/graham/.local/lib/pkgconfig:$PKG_CONFIG_PATH"
-    export LD_LIBRARY_PATH="/home/graham/.local/lib:$LD_LIBRARY_PATH"
+    export CMAKE_PREFIX_PATH="$HOME/.local:$CMAKE_PREFIX_PATH"
+    export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH"
+    export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
+    unset CMAKE_IGNORE_PATH
+    export PATH="$HOME/.local/bin:$PATH"
     echo "Using local protobuf: $(protoc --version)"
 }
-use-protobuf-system
+neofetch
 
-# load shared environment variables between bashrc and zshrc
 [ -f ~/.shell_common ] && source ~/.shell_common
-
-# load sensitive environment variables
 [ -f ~/.env ] && source ~/.env
+use-protobuf-system

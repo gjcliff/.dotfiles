@@ -47,7 +47,8 @@ autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
 if [ -n "$IN_DOCKER" ]; then
-    PROMPT="%{$fg[cyan]%}$IN_DOCKER%{$reset_color%} $PROMPT"
+  PROMPT=${PROMPT//\\n/}               # remove accidental newlines
+  PROMPT="%{$fg[cyan]%}($IN_DOCKER)%{$reset_color%} $PROMPT"
 fi
 
 . "$HOME/.cargo/env"
@@ -80,8 +81,9 @@ use-protobuf-local() {
 }
 neofetch
 
-[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 [ -f ~/.shell_common ] && source ~/.shell_common
 [ -f ~/.env ] && source ~/.env

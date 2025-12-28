@@ -24,7 +24,7 @@ log_warn() {
     echo -e "${YELLOW}[!]${NC} $1"
 }
 
-# Check if running as root
+# check if running as root
 if [[ $EUID -eq 0 ]]; then
    log_error "This script should not be run as root"
    exit 1

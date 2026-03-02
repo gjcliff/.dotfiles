@@ -1,5 +1,7 @@
 # ~/.zshrc
 
+/home/graham/miniforge3/bin/conda init zsh > /dev/null
+
 unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
@@ -64,28 +66,37 @@ if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
   source /usr/share/vcstool-completion/vcs.zsh
 fi
 
-use-protobuf-system() {
-    export CMAKE_PREFIX_PATH=$(echo "$CMAKE_PREFIX_PATH" | tr ':' '\n' | grep -v "$HOME/.local" | tr '\n' ':' | sed 's/:$//')
-    export CMAKE_IGNORE_PATH="$HOME/.local"
-    export PATH="/usr/bin:$PATH"
-    echo "Using system protobuf: $(protoc --version)"
-}
-
-use-protobuf-local() {
-    export CMAKE_PREFIX_PATH="$HOME/.local:$CMAKE_PREFIX_PATH"
-    export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH"
-    export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
-    unset CMAKE_IGNORE_PATH
-    export PATH="$HOME/.local/bin:$PATH"
-    echo "Using local protobuf: $(protoc --version)"
-}
 neofetch
-
-# [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
 
 [ -f ~/.shell_common ] && source ~/.shell_common
 [ -f ~/.env ] && source ~/.env
 
-use-protobuf-system
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/graham/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/graham/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/graham/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/graham/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/home/graham/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/home/graham/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

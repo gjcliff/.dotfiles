@@ -64,28 +64,13 @@ if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
   source /usr/share/vcstool-completion/vcs.zsh
 fi
 
-use-protobuf-system() {
-    export CMAKE_PREFIX_PATH=$(echo "$CMAKE_PREFIX_PATH" | tr ':' '\n' | grep -v "$HOME/.local" | tr '\n' ':' | sed 's/:$//')
-    export CMAKE_IGNORE_PATH="$HOME/.local"
-    export PATH="/usr/bin:$PATH"
-    echo "Using system protobuf: $(protoc --version)"
-}
-
-use-protobuf-local() {
-    export CMAKE_PREFIX_PATH="$HOME/.local:$CMAKE_PREFIX_PATH"
-    export PKG_CONFIG_PATH="$HOME/.local/lib/pkgconfig:$PKG_CONFIG_PATH"
-    export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
-    unset CMAKE_IGNORE_PATH
-    export PATH="$HOME/.local/bin:$PATH"
-    echo "Using local protobuf: $(protoc --version)"
-}
 neofetch
 
-# [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
 
 [ -f ~/.shell_common ] && source ~/.shell_common
 [ -f ~/.env ] && source ~/.env
 
-use-protobuf-system
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

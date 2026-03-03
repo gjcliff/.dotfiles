@@ -13,6 +13,7 @@ readonly NC='\033[0m'
 FILES=(
   ".zshrc"
   ".bashrc"
+  ".condarc"
   ".gitconfig"
   ".gitignore"
   ".tmux.conf"
@@ -20,6 +21,7 @@ FILES=(
   ".config/alacritty/alacritty.toml"
   ".config/neofetch/config.conf"
   ".oh-my-zsh/custom/themes/dst.zsh-theme"
+  ".miniforge3/.condarc"
 )
 
 log_info() {

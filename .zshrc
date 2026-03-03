@@ -1,7 +1,5 @@
 # ~/.zshrc
 
-/home/graham/miniforge3/bin/conda init zsh > /dev/null
-
 unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS

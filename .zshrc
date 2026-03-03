@@ -7,6 +7,30 @@ unsetopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 
+
+# user vars
+export EDITOR=nvim
+export XDG_SESSION_TYPE=x11
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/.platformio/penv/bin"
+export PATH="$PATH:/opt/microchip/xc32/v4.35/bin"
+
+export PUID=1000
+export PGID=1000
+export TZ=America/New_York
+export PLEX_CLAIM=
+
+# plex 
+export PLEX_SERVER_DIR=/home/graham/repos/plex-server
+export MEDIA_PATH=${PLEX_SERVER_DIR}/media
+export MOVIES_PATH=${PLEX_SERVER_DIR}/media/movies
+export TV_PATH=${PLEX_SERVER_DIR}/media/tv
+export PHOTOS_PATH=${PLEX_SERVER_DIR}/media/photos
+export MUSIC_PATH=${PLEX_SERVER_DIR}/media/music
+
 DISABLE_AUTO_TITLE="true"
 export PROMPT_IGNORE_EXIT_CODE=true
 
@@ -68,6 +92,7 @@ fi
 
 neofetch
 
+# fzf
 source <(fzf --zsh)
 
 [ -f ~/.shell_common ] && source ~/.shell_common

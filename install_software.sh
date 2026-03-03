@@ -26,51 +26,54 @@ log_warn() {
 
 # check if running as root
 if [[ $EUID -eq 0 ]]; then
-   log_error "This script should not be run as root"
+   log_error "this script should not be run as root"
    exit 1
 fi
 
-log_info "Updating apt..."
+log_info "updating apt"
 sudo apt update
 
-log_info "Installing build tools and utilities..."
+log_info "installing build tools and utilities"
 sudo apt install -y \
     build-essential \
     ninja-build \
     cmake \
     zsh \
     neofetch \
-    fzf \
     tmux \
     direnv \
     python3-argcomplete
 
-log_success "Build tools installed"
+log_success "build tools installed"
 
-# Install rust
+# install fzf
+if ! command -v fzf &>/dev/null; then
+    log_info "installing fzf"
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+
+# install rust
 if ! command -v cargo &>/dev/null; then
-    log_info "Installing Rust..."
+    log_info "installing rust"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     source "$HOME/.cargo/env"
-    log_success "Rust installed"
+    log_success "rust installed"
 else
-    log_info "Rust is already installed"
+    log_info "rust is already installed"
+    source "$HOME/.cargo/env"
 fi
 
-# Ensure cargo is in path
-source "$HOME/.cargo/env"
-
-# Install zoxide
-log_info "Installing zoxide..."
+# install zoxide
+log_info "installing zoxide"
 if cargo install zoxide --locked; then
     log_success "zoxide installed"
 else
-    log_error "Failed to install zoxide"
+    log_error "failed to install zoxide"
 fi
 
 # Install oh-my-zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    log_info "Installing oh-my-zsh..."
+    log_info "installing oh-my-zsh"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
     log_success "oh-my-zsh installed"
 else
@@ -78,10 +81,9 @@ else
 fi
 
 echo ""
-log_success "Installation complete!"
+log_success "installation complete!"
 echo ""
-echo "Next steps:"
-echo "  1. Run ./install_symlinks.sh to set up dotfiles"
-echo "  2. Copy .env.example to .env and add your tokens"
-echo "  3. Switch to zsh: chsh -s \$(which zsh)"
-echo "  4. Restart your terminal"
+echo "next steps:"
+echo "  1. run ./install_symlinks.sh to set up dotfiles"
+echo "  2. switch to zsh: chsh -s \$(which zsh)"
+echo "  3. restart your terminal"

@@ -42,15 +42,24 @@ sudo apt install -y \
     neofetch \
     tmux \
     direnv \
+    python3-pip \
+    python3-venv \
     python3-argcomplete
 
 log_success "build tools installed"
+
+# install miniforge
+if ! command -v mamba &>/dev/null; then
+    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+    bash Miniforge3-$(uname)-$(uname -m).sh
+fi
 
 # install fzf
 if ! command -v fzf &>/dev/null; then
     log_info "installing fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
+fi
 
 # install rust
 if ! command -v cargo &>/dev/null; then

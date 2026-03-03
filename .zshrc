@@ -95,8 +95,66 @@ neofetch
 # fzf
 source <(fzf --zsh)
 
-[ -f ~/.shell_common ] && source ~/.shell_common
-[ -f ~/.env ] && source ~/.env
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# user vars
+export EDITOR=nvim
+export XDG_SESSION_TYPE=x11
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$PATH:$HOME/.platformio/penv/bin"
+export PATH="$PATH:/opt/microchip/xc32/v4.35/bin"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# homebrew
+if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# library path
+if [[ ":$LD_LIBRARY_PATH:" != *":/usr/local/lib:"* ]]; then
+    export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+fi
+
+export NEXUS_DIR=~/work/nexus
+export NEXUS_ROS_DISTRO=/opt/ros/humble
+export NEXUS_OUTPUT=$NEXUS_DIR/output
+export PX4_DIR=~/work/PX4-Autopilot
+export MICRO_DDS_BRIDGE_DIR=~/work/Micro-XRCE-DDS-Agent
+export ARK_JETSON_KERNEL_DIR=$HOME/work/tmp/ark_jetson_kernel
+export ROS_DOMAIN_ID=3
+export ROS_LOCALHOST_ONLY=0
+export WP_BOX=$HOME/.fusion360/wineprefixes/default
+export GZ_SIM_RESOURCE_PATH=$PX4_DIR/Tools/simulation/gz/worlds:$PX4_DIR/Tools/simulation/gz/models:$HOME/.gz/fuel/fuel.gazebosim.org/models
+export STM32_PRG_PATH=$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
+
+# llvm
+export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
+export LIBCLANG_PATH=/usr/lib/llvm-14/lib/libclang.so
+
+alias vim='nvim'
+alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"
+alias sr2="source /opt/ros/humble/setup.zsh && source ~/ws/install/setup.zsh"
+alias python="python3"
+
+# docker x11 access (suppress output)
+xhost +local:docker >/dev/null 2>&1
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

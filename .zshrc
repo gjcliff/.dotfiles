@@ -67,6 +67,7 @@ if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
 fi
 
 neofetch
+
 source <(fzf --zsh)
 
 [ -f ~/.shell_common ] && source ~/.shell_common

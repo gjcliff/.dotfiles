@@ -182,3 +182,7 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+if [ -z "$TMUX" ]; then
+  tmux attach-session -t default 2>/dev/null || tmux new-session -s default
+fi

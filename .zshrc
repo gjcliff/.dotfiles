@@ -97,7 +97,6 @@ neofetch
 # fzf
 source <(fzf --zsh)
 
-<<<<<<< HEAD
 # user vars
 export EDITOR=nvim
 export XDG_SESSION_TYPE=x11
@@ -112,34 +111,13 @@ export PATH="$PATH:/opt/microchip/xc32/v4.35/bin"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-=======
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# user vars
-export EDITOR=nvim
-export XDG_SESSION_TYPE=x11
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$PATH:$HOME/.platformio/penv/bin"
-export PATH="$PATH:/opt/microchip/xc32/v4.35/bin"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
->>>>>>> origin/mesoscale
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="$HOME/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 
 # homebrew
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
@@ -177,7 +155,6 @@ xhost +local:docker >/dev/null 2>&1
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-<<<<<<< HEAD
 __conda_setup="$('/home/graham/.miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
@@ -186,16 +163,6 @@ else
         . "/home/graham/.miniforge3/etc/profile.d/conda.sh"
     else
         export PATH="/home/graham/.miniforge3/bin:$PATH"
-=======
-__conda_setup="$('/home/graham/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/graham/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/graham/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/graham/miniforge3/bin:$PATH"
->>>>>>> origin/mesoscale
     fi
 fi
 unset __conda_setup
@@ -204,13 +171,8 @@ unset __conda_setup
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
-<<<<<<< HEAD
 export MAMBA_EXE='/home/graham/.miniforge3/bin/mamba';
 export MAMBA_ROOT_PREFIX='/home/graham/.miniforge3';
-=======
-export MAMBA_EXE='/home/graham/miniforge3/bin/mamba';
-export MAMBA_ROOT_PREFIX='/home/graham/miniforge3';
->>>>>>> origin/mesoscale
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
@@ -219,10 +181,7 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
-<<<<<<< HEAD
 
 if [ -z "$TMUX" ]; then
   tmux attach-session -t default 2>/dev/null || tmux new-session -s default
 fi
-=======
->>>>>>> origin/mesoscale

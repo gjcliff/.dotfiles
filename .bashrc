@@ -163,7 +163,6 @@ export NEXUS_ROS_DISTRO=/opt/ros/humble
 export NEXUS_OUTPUT=$NEXUS_DIR/output
 export PX4_DIR=~/work/PX4-Autopilot
 export MICRO_DDS_BRIDGE_DIR=~/work/Micro-XRCE-DDS-Agent
-export MAPBOX_ACCESS_TOKEN=pk.eyJ1IjoibWFnaS0yIiwiYSI6ImNtNmxhaXhyMjA3NHkyaW9xbHN5bzY5bjIifQ.FEk3P3eh75NARHBTr2mI0g
 export RERUN_MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN
 export ARK_JETSON_KERNEL_DIR=/home/graham/work/tmp/ark_jetson_kernel
 export ROS_DOMAIN_ID=3
@@ -174,3 +173,19 @@ export WP_BOX=$HOME/.fusion360/wineprefixes/default
 export GZ_SIM_RESOURCE_PATH=$PX4_DIR/Tools/simulation/gz:$HOME/work/PX4-Autopilot/Tools/simulation/gz/models:$HOME/.gz/fuel/fuel.gazebosim.org/models:$GZ_SIM_RESOURCE_PATH
 
 export STM32_PRG_PATH=/home/graham/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/graham/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/graham/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/graham/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/graham/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

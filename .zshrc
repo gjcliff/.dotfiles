@@ -88,15 +88,10 @@ if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
   source /usr/share/vcstool-completion/vcs.zsh
 fi
 
-neofetch
+fastfetch
 
 # fzf
 source <(fzf --zsh)
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # user vars
 export EDITOR=nvim
@@ -108,17 +103,17 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$PATH:$HOME/.platformio/penv/bin"
 export PATH="$PATH:/opt/microchip/xc32/v4.35/bin"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+# # nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="$HOME/.local/share/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 
 # homebrew
 if [ -f /home/linuxbrew/.linuxbrew/bin/brew ]; then
@@ -182,3 +177,7 @@ else
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
+
+if [ -z "$TMUX" ]; then
+  tmux attach-session -t default 2>/dev/null || tmux new-session -s default
+fi

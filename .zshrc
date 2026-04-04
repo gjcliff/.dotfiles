@@ -88,11 +88,7 @@ if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
   source /usr/share/vcstool-completion/vcs.zsh
 fi
 
-<<<<<<< HEAD
 fastfetch
-=======
-neofetch
->>>>>>> origin/mesoscale
 
 # fzf
 source <(fzf --zsh)

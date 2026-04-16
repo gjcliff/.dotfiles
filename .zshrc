@@ -138,8 +138,10 @@ export GZ_SIM_RESOURCE_PATH=$PX4_DIR/Tools/simulation/gz/worlds:$PX4_DIR/Tools/s
 export STM32_PRG_PATH=$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
 
 # llvm
-export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
-export LIBCLANG_PATH=/usr/lib/llvm-14/lib/libclang.so
+# export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
+# export LIBCLANG_PATH=/usr/lib/llvm-14/lib/libclang.so
+export LLVM_CONFIG_PATH=/usr/bin/llvm-config-18
+export LIBCLANG_PATH=/usr/lib/llvm-18/lib
 
 alias vim='nvim'
 alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"

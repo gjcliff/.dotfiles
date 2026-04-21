@@ -1,5 +1,8 @@
 # ~/.zshrc
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
+
 unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
@@ -88,11 +91,7 @@ if [ -f /usr/share/vcstool-completion/vcs.zsh ]; then
   source /usr/share/vcstool-completion/vcs.zsh
 fi
 
-<<<<<<< HEAD
 fastfetch
-=======
-neofetch
->>>>>>> origin/mesoscale
 
 # fzf
 source <(fzf --zsh)
@@ -142,8 +141,6 @@ export GZ_SIM_RESOURCE_PATH=$PX4_DIR/Tools/simulation/gz/worlds:$PX4_DIR/Tools/s
 export STM32_PRG_PATH=$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
 
 # llvm
-export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
-export LIBCLANG_PATH=/usr/lib/llvm-14/lib/libclang.so
 
 alias vim='nvim'
 alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"

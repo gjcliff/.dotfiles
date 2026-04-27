@@ -141,6 +141,10 @@ export GZ_SIM_RESOURCE_PATH=$PX4_DIR/Tools/simulation/gz/worlds:$PX4_DIR/Tools/s
 export STM32_PRG_PATH=$HOME/STMicroelectronics/STM32Cube/STM32CubeProgrammer/bin
 
 # llvm
+# export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
+# export LIBCLANG_PATH=/usr/lib/llvm-14/lib/libclang.so
+export LLVM_CONFIG_PATH=/usr/bin/llvm-config-18
+export LIBCLANG_PATH=/usr/lib/llvm-18/lib
 
 alias vim='nvim'
 alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"
@@ -152,14 +156,14 @@ xhost +local:docker >/dev/null 2>&1
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/graham/.miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/graham/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/graham/.miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/graham/.miniforge3/etc/profile.d/conda.sh"
+    if [ -f "/home/graham/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/graham/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/graham/.miniforge3/bin:$PATH"
+        export PATH="/home/graham/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -168,8 +172,8 @@ unset __conda_setup
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba shell init' !!
-export MAMBA_EXE='/home/graham/.miniforge3/bin/mamba';
-export MAMBA_ROOT_PREFIX='/home/graham/.miniforge3';
+export MAMBA_EXE='/home/graham/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/home/graham/miniforge3';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"

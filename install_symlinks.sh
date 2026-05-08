@@ -21,11 +21,7 @@ FILES=(
   ".config/alacritty/alacritty.toml"
   ".config/neofetch/config.conf"
   ".oh-my-zsh/custom/themes/dst.zsh-theme"
-<<<<<<< HEAD
   ".miniforge3/.condarc"
-=======
-  "miniforge3/.condarc"
->>>>>>> origin/mesoscale
 )
 
 log_info() {

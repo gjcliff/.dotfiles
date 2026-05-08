@@ -1,5 +1,8 @@
 # ~/.zshrc
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
+
 unsetopt SHARE_HISTORY
 unsetopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
@@ -122,8 +125,10 @@ export ARK_JETSON_KERNEL_DIR=$HOME/work/tmp/ark_jetson_kernel
 # export ROS_DOMAIN_ID=0
 
 # llvm
-export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
-export LIBCLANG_PATH=/usr/lib/llvm-14/lib/libclang.so
+# export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
+# export LIBCLANG_PATH=/usr/lib/llvm-14/lib/libclang.so
+export LLVM_CONFIG_PATH=/usr/bin/llvm-config-18
+export LIBCLANG_PATH=/usr/lib/llvm-18/lib
 
 alias vim='nvim'
 alias cura="~/Documents/prints/UltiMaker-Cura-5.3.0-linux-modern.AppImage"

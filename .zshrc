@@ -87,16 +87,6 @@ fastfetch
 # fzf
 source <(fzf --zsh)
 
-# user vars
-export EDITOR=nvim
-export XDG_SESSION_TYPE=x11
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$PATH:$HOME/.platformio/penv/bin"
-export PATH="$PATH:/opt/microchip/xc32/v4.35/bin"
-
 # # nvm
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -118,11 +108,6 @@ fi
 if [[ ":$LD_LIBRARY_PATH:" != *":/usr/local/lib:"* ]]; then
     export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 fi
-
-export PX4_DIR=~/work/PX4-Autopilot
-export MICRO_DDS_BRIDGE_DIR=~/work/Micro-XRCE-DDS-Agent
-export ARK_JETSON_KERNEL_DIR=$HOME/work/tmp/ark_jetson_kernel
-# export ROS_DOMAIN_ID=0
 
 # llvm
 # export LLVM_CONFIG_PATH=/usr/bin/llvm-config-14
